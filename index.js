@@ -21,7 +21,7 @@ module.exports = (config, {target, dev}, webpack) => {
 
   if (isHeroku) {
     delete newDefs["process.env.PORT"]
-    newDefs["process.env.RAZZLE_PUBLIC_DIR"] = '"/app/build/public"'
+    delete newDefs["process.env.RAZZLE_PUBLIC_DIR"]
   }
 
   config.plugins[indexDefinePlugin] = new webpack.DefinePlugin(newDefs)
